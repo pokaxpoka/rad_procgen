@@ -1,6 +1,6 @@
 # Reinforcement Learning with Augmented Data (RAD): ProcGen
 
-Official codebase for [Reinforcement Learning with Augmented Data](https://mishalaskin.github.io/rad) on [Procgen Benchmark](https://github.com/openai/procgen). This codebase was originally forked from [Procgen](https://github.com/openai/train-procgen). 
+Official codebase for [Reinforcement Learning with Augmented Data](https://mishalaskin.github.io/rad) on [Procgen Benchmark](https://github.com/openai/procgen). This codebase was originally forked from [Procgen](https://github.com/openai/train-procgen). Official codebase for DM control is available at [RAD: DM control](https://github.com/MishaLaskin/rad)
 
 ## BibTex
 
@@ -38,104 +38,50 @@ pip install torch matplotlib scikit-image
 
 change `NeurIPS2020_Procgen_Envs/procgen/src/game.h` for random crop
 
-
-
-
-**Status:** Archive (code is provided as-is, no updates expected)
-
-# Leveraging Procedural Generation to Benchmark Reinforcement Learning
-
-#### [[Blog Post]](https://openai.com/blog/procgen-benchmark/) [[Paper]](https://arxiv.org/abs/1912.01588)
-
-This is code for training agents for some of the experiments in [Leveraging Procedural Generation to Benchmark Reinforcement Learning](https://cdn.openai.com/procgen.pdf) [(citation)](#citation).  The code for the environments is in the [Procgen Benchmark](https://github.com/openai/procgen) repo.
-
-Supported platforms:
-
-- macOS 10.14 (Mojave)
-- Ubuntu 16.04
-
-Supported Pythons:
-
-- 3.7 64-bit
-
-
 ## Try it out
 
+Pixel PPO on the environment StarPilot:
 
 ```
-python -m train_procgen.train --env_name coinrun --num_levels 100 --exp_name try1 --data_aug rotate
+./scripts/train_normal.sh starpilot
 ```
 
-
-Train an agent using PPO on the environment StarPilot:
-
+PPO + RAD (crop) on the environment StarPilot:
 ```
-python -m train_procgen.train --env_name coinrun
+./scripts/train.sh starpilot crop
 ```
 
-Train an agent using PPO on the environment StarPilot using the easy difficulty:
-
+PPO + RAD (flip) on the environment StarPilot:
 ```
-python -m train_procgen.train --env_name starpilot --distribution_mode easy
-```
-
-Run parallel training using MPI:
-
-```
-mpiexec -np 8 python -m train_procgen.train --env_name starpilot
+./scripts/train.sh starpilot flip
 ```
 
-Train an agent on a fixed set of N levels:
-
+PPO + RAD (color_jitter) on the environment StarPilot:
 ```
-python -m train_procgen.train --env_name starpilot --num_levels N
-```
-
-Train an agent on the same 500 levels used in the paper:
-
-```
-python -m train_procgen.train --env_name starpilot --num_levels 500
+./scripts/train.sh starpilot color_jitter
 ```
 
-Train an agent on a different set of 500 levels:
-
+PPO + RAD (rotate) on the environment StarPilot:
 ```
-python -m train_procgen.train --env_name starpilot --num_levels 500 --start_level 1000
-```
-
-Run simultaneous training and testing using MPI. 1 in every 4 workers will be test workers, and the rest will be training workers.
-
-```
-mpiexec -np 8 python -m train_procgen.train --env_name starpilot --num_levels 500 --test_worker_interval 4
+./scripts/train.sh starpilot rotate
 ```
 
-Train an agent using PPO on a level in Jumper that requires hard exploration
-
+PPO + RAD (cutout_color) on the environment StarPilot:
 ```
-python -m train_procgen.train --env_name jumper --distribution_mode exploration
-```
-
-Train an agent using PPO on a variant of CaveFlyer that requires memory
-
-```
-python -m train_procgen.train --env_name caveflyer --distribution_mode memory
+./scripts/train.sh starpilot cutout_color
 ```
 
-View training options:
-
+PPO + RAD (cutout) on the environment StarPilot:
 ```
-python -m train_procgen.train --help
+./scripts/train.sh starpilot cutout
 ```
 
-# Citation
-
-Please cite using the following bibtex entry:
-
+PPO + RAD (gray) on the environment StarPilot:
 ```
-@article{cobbe2019procgen,
-  title={Leveraging Procedural Generation to Benchmark Reinforcement Learning},
-  author={Cobbe, Karl and Hesse, Christopher and Hilton, Jacob and Schulman, John},
-  journal={arXiv preprint arXiv:1912.01588},
-  year={2019}
-}
+./scripts/train.sh starpilot gray
+```
+
+PPO + RAD (random conv) on the environment StarPilot:
+```
+./scripts/train_random.sh starpilot
 ```
