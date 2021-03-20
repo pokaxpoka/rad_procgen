@@ -5,10 +5,11 @@ Official codebase for [Reinforcement Learning with Augmented Data](https://misha
 ## BibTex
 
 ```
-@unpublished{laskin_lee2020rad,
-  title={Reinforcement Learning with Augmented Data},
+@article{laskin2020reinforcement,
+  title={Reinforcement learning with augmented data},
   author={Laskin, Michael and Lee, Kimin and Stooke, Adam and Pinto, Lerrel and Abbeel, Pieter and Srinivas, Aravind},
-  note={arXiv:2004.14990}
+  journal={arXiv preprint arXiv:2004.14990},
+  year={2020}
 }
 ```
 
