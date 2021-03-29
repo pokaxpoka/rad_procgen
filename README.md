@@ -1,6 +1,6 @@
 # Reinforcement Learning with Augmented Data (RAD): ProcGen
 
-Official codebase for [Reinforcement Learning with Augmented Data](https://mishalaskin.github.io/rad) on [Procgen Benchmark](https://github.com/openai/procgen). This codebase was originally forked from [Procgen](https://github.com/openai/train-procgen). Official codebase for DM control is available at [RAD: DM control](https://github.com/MishaLaskin/rad)
+Official codebase for [Reinforcement Learning with Augmented Data](https://mishalaskin.github.io/rad) on [Procgen Benchmark](https://github.com/openai/procgen). This codebase was originally forked from [Procgen](https://github.com/openai/train-procgen). Official codebases for DM control and OpenAI Gym are available at [RAD: DM control](https://github.com/MishaLaskin/rad) [RAD: OpenAI Gym](https://github.com/pokaxpoka/rad_openaigym).
 
 ## BibTex
 
